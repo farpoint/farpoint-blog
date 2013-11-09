@@ -21,7 +21,7 @@ Template.posts.posts = function() {
 }
 
 Template.posts.hasPosts = function() {
-	return Posts.find().count() > 1;
+	return Posts.find().count() > 0;
 }
 
 Template.post.post = function() {
