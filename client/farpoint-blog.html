@@ -1,0 +1,54 @@
+<head>
+  <title>Farpoint Blog</title>
+</head>
+
+<body>
+</body>
+
+<template name="layout">
+	<div class="container">
+		<div class="navbar">
+			<div class="navbar-inner">
+				<a class="brand" href="#">Farpoint Blog</a>
+				<ul class="nav">
+					<li><a href="/">Home</a></li>
+					<li><a href="/create">Create</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span12">
+				{{yield}}
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="404">
+<h1>404'd!</h1>
+<p>This page doesn't exist...maybe you typed the URL wrong? Or maybe something is broken??!?</p>
+</template>
+
+<template name="posts">
+	{{#each posts}}
+		<h2 class="well"><a href="/post/{{_id}}">{{title}}</a></h2>
+	{{/each}}
+</template>
+
+<template name="post">
+	<h1>{{post.title}}</h1>
+	{{#markdown}}{{post.content}}{{/markdown}}
+</template>
+
+<template name="create">
+	<form>
+		<fieldset>
+			<legend>Create a new post</legend>
+			<label for="title">Post title</label>
+			<input type="text" id="title" placeholder="Post Title" class="input-xlarge">
+			<label for="content">Your post!</label>
+			<textarea rows="8" id="content" class="input-xlarge"></textarea><br/>
+			<button type="submit" class="btn btn-large btn-success" href="#">Create</button>
+		</fieldset>
+	</form>
+</template>
