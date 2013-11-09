@@ -20,6 +20,10 @@ Template.posts.posts = function() {
 	return Posts.find({},{sort: {createdOn: -1}});
 }
 
+Template.posts.hasPosts = function() {
+	return Posts.find().count() > 1;
+}
+
 Template.post.post = function() {
   return Posts.findOne(Session.get("post"));
 }

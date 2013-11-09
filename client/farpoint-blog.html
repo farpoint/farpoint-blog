@@ -30,9 +30,14 @@
 </template>
 
 <template name="posts">
-	{{#each posts}}
-		<h2 class="well"><a href="/post/{{_id}}">{{title}}</a></h2>
-	{{/each}}
+	{{#if hasPosts}}
+		{{#each posts}}
+			<h2 class="well"><a href="/post/{{_id}}">{{title}}</a></h2>
+		{{/each}}
+	{{else}}
+		<h1>No Posts Found!</h1>
+		<a href="/create" class="btn btn-primary btn-large">Create First Post!</a>
+	{{/if}}
 </template>
 
 <template name="post">
